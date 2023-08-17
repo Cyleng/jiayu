@@ -15,8 +15,15 @@ public class HomeController {
     @Autowired
     private HomeService homeService;
 
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("searchBlog", new SearchBlog(""));
+        return "index"; }
+
     @GetMapping("/index")
-    public String index() { return "index"; }
+    public String index(Model model) {
+        model.addAttribute("searchBlog", new SearchBlog(""));
+        return "index"; }
 
     @GetMapping("/contact")
     public String contact() { return "contact"; }
@@ -30,7 +37,6 @@ public class HomeController {
     public String blog(Model model) {
 
         model.addAttribute("blogs", homeService.getAllBlogs());
-        model.addAttribute("searchBlog", new SearchBlog(""));
         return "blog"; }
 
     @PostMapping("/blog")

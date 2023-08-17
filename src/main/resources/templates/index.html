@@ -68,6 +68,12 @@
 <!--                            </ul>-->
 
 <!--                        </li>-->
+                        <li class=" search-form">
+                            <form th:action="@{/blog}" th:object="${searchBlog}" class="form-group" method="post">
+                                <input type="text" th:field="*{searchString}" class="form-control" placeholder="Search the blog" required>
+                                <button class="btn btn-green" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </li>
                         <li><a href="portfolio">Portfolio</a></li>
                         <li><a href="blog">Blog</a></li>
                         <li><a href="contact">Contact</a></li>
