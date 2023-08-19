@@ -35,7 +35,7 @@ public class HomeController {
 
     @GetMapping("/blog")
     public String blog(Model model) {
-
+        model.addAttribute("searchBlog", new SearchBlog(""));
         model.addAttribute("blogs", homeService.getAllBlogs());
         return "blog"; }
 
